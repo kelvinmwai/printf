@@ -91,6 +91,6 @@ int print_percent(va_list types, char buffer[],
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(size);
-	return (write(1, ""%%", 1));
+	return (write(1, "%%", 1));
 }
 

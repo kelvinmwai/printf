@@ -1,5 +1,7 @@
 #include "main.h"
 
+void print_buffer(char buffer[], int *buff_ind);
+
 /**
  * _printf - Printf function
  * @format: pointer to array of characters
@@ -7,29 +9,29 @@
  */
 int _printf(const char *format, ...)
 {
-	int x, char_prnt = 0, printed = 0;
-	int flags, width, precision, size, buff_index = 0;
+	int x, char_prnt = 0, printed;
+	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
 	if (format ==  NULL)
 		return (-1);
 
-	va_start(lst, format);
+	va_start(list, format);
 
 	for (x = 0; format && format[x] != '\0'; x++)
 	{
 		if (format[x] != '%')
 		{
-			buffer[buff_index++] = format[x];
-			if (buff_index == BUFF_SIZE)
-				print_buffer(buffer, &buff_index);
+			buffer[buff_ind++] = format[x];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
 			char_prnt++;
 		}
 		else
 		{
 		
-			print_buffer(buffer, &buff_index);
+			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &x);
 			width = get_width(format, &x, list);
 			precision = get_precision(format, &x, list);
@@ -42,8 +44,7 @@ int _printf(const char *format, ...)
 			char_prnt += printed;
 		}
 	}
-	print_buffer(buffer, &buff_index);
-
+	print_buffer(buffer, &buff_ind);
 	va_end(list);
 
 	return (char_prnt);
@@ -56,9 +57,9 @@ int _printf(const char *format, ...)
  */
 void print_buffer(char buffer[], int *buff_ind)
 {
-	if (*buff_index > 0)
-		write(1, &buffer[0], *buff_index);
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
 
-	*buff_index = 0;
+	*buff_ind = 0;
 }
 
