@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
-
 /**
  * _printf - Printf function
  * @format: pointer to array of characters
@@ -46,6 +45,8 @@ int _printf(const char *format, ...)
 				int str_len = 0;
 				int x;
 
+				if(str == NULL)
+					str = "null";
 				for (x = 0; str[x] != '\0'; x++)
 				{
 					str_len++;
