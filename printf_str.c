@@ -1,30 +1,31 @@
 #include "main.h"
-/***** PRINT CHAR ****/
+
+/************************* PRINT CHAR *************************/
+
 /**
  * print_char - Prints a char
- * @types: List of arguments
+ * @types: List a of arguments
  * @buffer: Buffer array to handle print
- * @flags:  Calculate active flags
+ * @flags:  Calculates active flags
  * @width: Width
  * @precision: Precision specification
  * @size: Size specifier
- * Return: number chars printed
+ * Return: Number of chars printed
  */
 int print_char(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
 
-	return handle_write_char(c, buffer, flags, width, precision, size);
+	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
-
-/***** PRINT A STRING *****/
+/************************* PRINT A STRING *************************/
 /**
  * print_string - Prints a string
- * @types: List of arguments
+ * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @width: width.
+ * @width: get width.
  * @precision: Precision specification
  * @size: Size specifier
  * Return: Number of chars printed
@@ -32,7 +33,7 @@ int print_char(va_list types, char buffer[],
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int length = 0, x;
+	int length = 0, i;
 	char *str = va_arg(types, char *);
 
 	UNUSED(buffer);
@@ -43,6 +44,8 @@ int print_string(va_list types, char buffer[],
 	if (str == NULL)
 	{
 		str = "(null)";
+		if (precision >= 6)
+			str = "      ";
 	}
 
 	while (str[length] != '\0')
@@ -56,13 +59,13 @@ int print_string(va_list types, char buffer[],
 		if (flags & F_MINUS)
 		{
 			write(1, &str[0], length);
-			for (x = width - length; x > 0; x--)
+			for (i = width - length; i > 0; i--)
 				write(1, " ", 1);
 			return (width);
 		}
 		else
 		{
-			for (x = width - length; x > 0; x--)
+			for (i = width - length; i > 0; i--)
 				write(1, " ", 1);
 			write(1, &str[0], length);
 			return (width);
@@ -71,10 +74,10 @@ int print_string(va_list types, char buffer[],
 
 	return (write(1, str, length));
 }
-/*** PRINT PERCENT SIGN *****/
+/************************* PRINT PERCENT SIGN *************************/
 /**
- * print_percent - Prints a percent sign coming after percentage identifier
- * @types: List of arguments
+ * print_percent - Prints a percent sign
+ * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width.

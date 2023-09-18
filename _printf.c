@@ -30,7 +30,6 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-		
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &x);
 			width = get_width(format, &x, list);
@@ -53,7 +52,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - Prints the contents of the buffer
  * @buffer: stores array of chars
- * @buff_index: Index at which to add next char || the length.
+ * @buff_ind: Index at which to add next char || the length.
  */
 void print_buffer(char buffer[], int *buff_ind)
 {
