@@ -8,6 +8,9 @@
  */
 int selector(const char *format, va_list list, int char_prnt)
 {
+	char *str = va_arg(list, char*);
+	int i, str_len = 0;
+
 	switch (*format)
 	{
 		case 'd':
@@ -19,7 +22,14 @@ int selector(const char *format, va_list list, int char_prnt)
 			char_prnt++;
 			break;
 		case 's':
-			char_prnt = printf_string(list, char_prnt);
+			if (str == NULL)
+				str = "(null)";
+			for (i = 0; str[i] != '\0'; i++)
+			{
+				str_len++;
+			}
+			write(1, str, str_len);
+			char_prnt += str_len;
 			break;
 		case '%':
 			_putchar('%');

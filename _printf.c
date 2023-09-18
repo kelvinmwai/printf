@@ -15,20 +15,20 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(list, format);
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			char_prnt` = selector(format, list, char_prnt);
+			char_prnt = selector(format, list, char_prnt);
 			format++;
 		}
 		else
 		{
-			_putchar(*format);
+			write(1, format, 1);
 			char_prnt++;
-			format++;
 		}
+		format++;
 	}
 va_end(list);
 return (char_prnt);
