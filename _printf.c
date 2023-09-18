@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			char_prnt = selector(format, list, char_prnt);
+			char_prnt` = selector(format, list, char_prnt);
 			format++;
 		}
 		else
