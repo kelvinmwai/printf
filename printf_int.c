@@ -2,21 +2,21 @@
 
 /**
  * printf_integer - prints an integer
- * @args: number of arguments
- * @printed: the printed characters
+ * @list: number of arguments
+ * @char_prnt: the printed characters
  * Return: printed charcaters
  */
 
-int printf_integer(va_list args, int printed)
+int printf_integer(va_list list, int char_prnt)
 {
-	int num = va_arg(args, int);
+	int num = va_arg(list, int);
 	int digits = 0;
 	int tmp = num;
 	int dig;
 
 	if (num < 0)
 	{
-		printed += _putchar('-');
+		char_prnt += _putchar('-');
 		num = -num;
 
 		tmp = num;
@@ -37,9 +37,9 @@ int printf_integer(va_list args, int printed)
 			mod10 *= 10;
 		}
 		dig = num / mod10;
-		printed += _putchar(dig + '0');
+		char_prnt += _putchar(dig + '0');
 		num -= dig * mod10;
 		digits--;
 	}
-	return (printed);
+	return (char_prnt);
 }
