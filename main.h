@@ -40,7 +40,7 @@ struct fmt
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i,
+int form_ident(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -105,9 +105,9 @@ int write_pointer(char buffer[], int ind, int length,
 int write_unsgnd(int is_negative, int ind,
 char buffer[],
 	int flags, int width, int precision, int size);
-/************* UTILS **************/
+/*************ESSENTIAL **************/
 int is_printable(char);
-int append_hexa_code(char, char[], int);
+int append_hexa(char, char[], int);
 int is_digit(char);
 
 long int convert_size_number(long int num, int size);

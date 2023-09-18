@@ -37,8 +37,8 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &x, list);
 			size = get_size(format, &x);
 			++x;
-			printed = handle_print(format, &x, list, buffer,
-				flags, width, precision, size);
+			printed = form_ident(format, &x, list, buffer,
+				flags, width, precision, size);/*identifies format c,d,i,%*/
 			if (printed == -1)
 				return (-1);
 			char_prnt += printed;
