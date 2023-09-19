@@ -42,10 +42,18 @@ int _printf(const char *format, ...)
 				write(1, str, str_len);
 				char_prnt += str_len;
 			}
-			else if(*format == 'c' || *format == '%')
+			else if(*format == 'c')
 			{
-				char_prnt = selector(format, list, char_prnt);
+				char c = va_arg(list, int);
+				write(1, &c, 1);
+				char_prnt++;	
 			}
+			else if (*format == '%')
+			{
+				write(1, format, 1);
+				char_prnt++;
+			}
+
 		}
 		format++;
 	}
