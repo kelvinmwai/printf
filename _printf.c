@@ -1,4 +1,5 @@
 #include "main.h"
+
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -33,25 +34,18 @@ int _printf(const char *format, ...)
 			{
 				char *str = va_arg(list, char*);
 				int str_len = 0;
-				int i;
+				int x;
 
-				for (i = 0; str[i] != '\0'; i++)
+				for (x = 0; str[x] != '\0'; x++)
 				{
 					str_len++;
 				}
 				write(1, str, str_len);
 				char_prnt += str_len;
 			}
-			else if (*format == 'c')
+			else
 			{
-				char c = va_arg(list, int);
-				write(1, &c, 1);
-				char_prnt++;
-			}
-			else if (*format == '%')
-			{
-				write(1, format, 1);
-				char_prnt++;
+				char_prnt = selector(format, list, char_prnt);	
 			}
 		}
 		format++;
