@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			{
 				break;
 			}
-			else if(*format == 's')
+			else if (*format == 's')
 			{
 				char *str = va_arg(list, char*);
 				int str_len = 0;
@@ -42,22 +42,20 @@ int _printf(const char *format, ...)
 				write(1, str, str_len);
 				char_prnt += str_len;
 			}
-			else if(*format == 'c')
+			else if (*format == 'c')
 			{
 				char c = va_arg(list, int);
 				write(1, &c, 1);
-				char_prnt++;	
+				char_prnt++;
 			}
 			else if (*format == '%')
 			{
 				write(1, format, 1);
 				char_prnt++;
 			}
-
 		}
 		format++;
 	}
 va_end(list);
 return (char_prnt);
 }
-
