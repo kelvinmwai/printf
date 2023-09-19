@@ -3,9 +3,9 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- * print_int - prints an integer number
+ * printf_integer - prints an integer number
  * @list: number of arguments
- * @printed: the printed characters
+ * @char_prnt: the printed characters
  * Return: printed charcaters
  */
 
@@ -16,7 +16,6 @@ int printf_integer(va_list list, int char_prnt)
 	int tmp = num;
 	int dig;
 
-	
 	if (num < 0)
 	{
 		char_prnt += _putchar('-');

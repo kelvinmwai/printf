@@ -23,6 +23,9 @@ int selector(const char *format, va_list list, int char_prnt)
 			_putchar(va_arg(list, int));
 			char_prnt++;
 			break;
+		case 's':
+			char_prnt = printf_string(list, char_prnt);
+			break;
 		case '%':
 			_putchar('%');
 			char_prnt++;
@@ -32,13 +35,13 @@ int selector(const char *format, va_list list, int char_prnt)
 			break;
 		case 'x':
 		case 'X':
-			char_prnt = printf_hexa(va_arg(list, unsigned int), char_prnt, (*format == 'X') ? 1 : 0);
+			char_prnt = _hex(va_arg(list, unsigned int), char_prnt, (*format == 'X') ? 1 : 0);
 			break;
 		case 'o':
 			char_prnt = printf_octal(va_arg(list, unsigned int), char_prnt);
 			break;
 		case 'u':
-			char_prnt = printf_unsigned(va_arg(list, unsigned int), char_prnt);
+			char_prnt = printf_unsign(va_arg(list, unsigned int), char_prnt);
 			break;
 		case 'r':
 			char_prnt = printf_reverse(list, char_prnt);

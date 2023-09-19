@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * printf_hexa - prints a hexadecimal number
+ * _hex - prints a hexadecimal number
  * @num: number of arguments
  * @char_prnt: the printed characters
  * @uppercase: the uppercase format
  * Return: printed characters
  */
 
-int printf_hexa(unsigned int num, int char_prnt, int uppercase)
+int _hex(unsigned int num, int char_prnt, int uppercase)
 {
 	int hex[100], a = 0, b;
 

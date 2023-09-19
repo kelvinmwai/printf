@@ -30,22 +30,9 @@ int _printf(const char *format, ...)
 			{
 				break;
 			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(list, char*);
-				int str_len = 0;
-				int x;
-
-				for (x = 0; str[x] != '\0'; x++)
-				{
-					str_len++;
-				}
-				write(1, str, str_len);
-				char_prnt += str_len;
-			}
 			else
 			{
-				char_prnt = selector(format, list, char_prnt);	
+				char_prnt = selector(format, list, char_prnt);
 			}
 		}
 		format++;

@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * printf_unsigned - prints an unsigned integer
+ * printf_unsign - prints an unsigned integer
  * @num: number of arguments
  * @char_prnt: the printed characters
- * Return: printed charcaters
+ * Return: printed characters
  */
 
-int printf_unsigned(unsigned int num, int char_prnt)
+int printf_unsign(unsigned int num, int char_prnt)
 {
 	int digits = 0;
 	unsigned int temp = num;
