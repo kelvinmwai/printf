@@ -7,7 +7,7 @@
  * Return: printed charcaters
  */
 
-int printf_char(va_list list, int chr_prnt)
+int printf_char(va_list list, int char_prnt)
 {
 	int chr = va_arg(list, int);
 

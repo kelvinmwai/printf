@@ -7,7 +7,7 @@
  * Return: printed charcaters
  */
 
-int printf_unsigned(unsigned int num, int printed)
+int printf_unsigned(unsigned int num, int char_prnt)
 {
 	int digits = 0;
 	unsigned int temp = num;
@@ -41,3 +41,4 @@ int printf_unsigned(unsigned int num, int printed)
 	}
 	return (char_prnt);
 }
+
