@@ -1,10 +1,10 @@
 /**
- * _strlen - length of a string
+ * str_len - length of a string
  * @s: the string
  * Return: the length
  */
 
-int _strlen(char *s)
+int str_len(char *s)
 {
 	int x;
 
