@@ -1,4 +1,7 @@
 #include "main.h"
+#include<unistd.h>
+#include<stdarg.h>
+#include<stdio.h>
 /**
  * selector - selects the respective specifier
  * @list: number of arguments
