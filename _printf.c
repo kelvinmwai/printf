@@ -17,16 +17,35 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			format++;
-			char_prnt = selector(format, list, char_prnt);
-			format++;
-		}
-		else
+		if (*format != '%')
 		{
 			write(1, format, 1);
 			char_prnt++;
+		}
+		else
+		{
+			format++;
+			if (*format == '\0')
+			{
+				break;
+			}
+			else if(*format == 's')
+			{
+				char *str = va_arg(list, char*);
+				int str_len = 0;
+				int i;
+
+				for (i = 0; str[i] != '\0'; i++)
+				{
+					str_len++;
+				}
+				write(1, str, str_len);
+				char_prnt += str_len;
+			}
+			else if(*format == 'c' || *format == '%')
+			{
+				char_prnt = selector(format, list, char_prnt);
+			}
 		}
 		format++;
 	}

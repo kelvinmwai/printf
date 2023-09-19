@@ -17,5 +17,6 @@ int printf_unsigned(unsigned int num, int char_prnt);
 int printf_reverse(va_list list, int char_prnt);
 int printf_pointer(va_list list, int char_prnt);
 int printf_string(va_list args, int char_prnt);
+int selector(const char *format, va_list list, int char_prnt);
 #endif
 
