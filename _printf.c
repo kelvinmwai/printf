@@ -5,7 +5,7 @@
 /**
  * _printf - Printf function
  * @format: pointer to array of characters
- * Return: characters printed to standard output
+ * Return: characters to be printed
  */
 int _printf(const char *format, ...)
 {
@@ -60,3 +60,4 @@ int _printf(const char *format, ...)
 va_end(list);
 return (char_prnt);
 }
+
